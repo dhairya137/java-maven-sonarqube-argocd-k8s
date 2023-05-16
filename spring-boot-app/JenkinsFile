@@ -28,7 +28,7 @@ pipeline {
     }
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "abhishekf5/ultimate-cicd-java-k8s:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "dhairya137/ultimate-cicd-java-k8s:${BUILD_NUMBER}"
         REGISTRY_CREDENTIALS = credentials('docker-cred')
       }
       steps {
@@ -43,7 +43,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
+            GIT_REPO_NAME = "java-maven-sonarqube-argocd-k8s"
             GIT_USER_NAME = "dhairya137"
         }
         steps {
