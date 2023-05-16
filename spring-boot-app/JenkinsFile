@@ -50,6 +50,8 @@ pipeline {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
                     git config --global --add safe.directory /var/lib/jenkins/workspace/java-maven-k8s
+                    git config --global user.email "dhairya00798@gmail.com"
+                    git config --global user.name "Dhairya Patel"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" spring-boot-app-manifests/deployment.yml
                     git add spring-boot-app-manifests/deployment.yml
@@ -62,5 +64,3 @@ pipeline {
   }
 }
 
-                    // git config --global user.email "dhairya00798@gmail.com"
-                    // git config --global user.name "Dhairya Patel"
